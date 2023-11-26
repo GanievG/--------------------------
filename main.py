@@ -1,18 +1,9 @@
 import re
 
-# Пример HTML документа
-html_document = """
-<html>
-<body>
-  <p>Мой e-mail: example1@example.com</p>
-  <p>Еще один e-mail: another@example.com</p>
-  <p>Контактный e-mail: contact@domain.com</p>
-  <a href="mailto:info@company.com">Контакты</a>
-  
-</body>
-</html>
-"""
-
+# Чтение содержимого HTML-файла
+with open('index.html', 'r', encoding='utf-8') as file:
+    html_document = file.read()
+    
 # Используем регулярные выражения для извлечения электронных адресов
 email_addresses = re.findall(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', html_document)
 
